@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ML6-3I-g15">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UBx-yH-3OJ">
+            <objects>
+                <tabBarController id="ML6-3I-g15" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tLH-EY-ao0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="X9N-1Y-V4L" kind="relationship" relationship="viewControllers" id="3cX-87-cun"/>
+                        <segue destination="4bE-Er-SKN" kind="relationship" relationship="viewControllers" id="IG4-s4-Lbu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="atj-ff-ZqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1359" y="-28"/>
+        </scene>
+        <!--Location Collection View Controller-->
+        <scene sceneID="H3V-lA-4Gh">
+            <objects>
+                <collectionViewController id="yrP-8p-DeO" customClass="LocationCollectionViewController" customModule="FlickrViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="v6Z-ix-mPe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uTb-YI-twV">
+                            <size key="itemSize" width="121" height="113"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="1Eo-Cm-whp" customClass="LocationCollectionViewCell" customModule="FlickrViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="121" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="121" height="113"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAT-LY-w1o" customClass="SearchImageView" customModule="FlickrViewer" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="121" height="113"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="imageView" destination="EAT-LY-w1o" id="XUX-gU-cN0"/>
+                                    <segue destination="dGV-5S-DAP" kind="show" identifier="LocationMore" id="lJs-9x-7xT"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="yrP-8p-DeO" id="4Ve-6U-eUF"/>
+                            <outlet property="delegate" destination="yrP-8p-DeO" id="DGO-ic-iFn"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="vt7-Sa-ma1">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbo-O4-2hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213.59999999999999" y="-348.57571214392806"/>
+        </scene>
+        <!--Search Collection View Controller-->
+        <scene sceneID="edb-NV-BZP">
+            <objects>
+                <collectionViewController id="oHQ-yH-fig" customClass="SearchCollectionViewController" customModule="FlickrViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d9E-8w-ZPL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Iej-ar-F1l">
+                            <size key="itemSize" width="121" height="113"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="hiy-BJ-D3x" customClass="SearchCollectionViewCell" customModule="FlickrViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="121" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="121" height="113"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KDc-8o-hpI" customClass="SearchImageView" customModule="FlickrViewer" customModuleProvider="target">
+                                            <rect key="frame" x="-2" y="-6" width="124" height="124"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="KDc-8o-hpI" firstAttribute="leading" secondItem="hiy-BJ-D3x" secondAttribute="leading" constant="-2" id="6YG-Sb-vFs"/>
+                                    <constraint firstItem="KDc-8o-hpI" firstAttribute="top" secondItem="hiy-BJ-D3x" secondAttribute="top" constant="-6" id="Aju-rm-m8A"/>
+                                    <constraint firstAttribute="trailing" secondItem="KDc-8o-hpI" secondAttribute="trailing" constant="-1" id="uZy-T7-HyN"/>
+                                    <constraint firstAttribute="bottom" secondItem="KDc-8o-hpI" secondAttribute="bottom" constant="-5" id="wQn-8b-YhE"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="KDc-8o-hpI" id="bUg-x6-b5w"/>
+                                    <segue destination="dGV-5S-DAP" kind="show" identifier="ShowMore" id="qZn-zs-uek"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="oHQ-yH-fig" id="v4S-uO-bqK"/>
+                            <outlet property="delegate" destination="oHQ-yH-fig" id="8dJ-qZ-2Qt"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Klh-cc-pxg">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" id="B79-s7-alx">
+                            <rect key="frame" x="97.5" y="7" width="180" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <connections>
+                                <action selector="search:" destination="oHQ-yH-fig" eventType="primaryActionTriggered" id="JQS-l5-dK8"/>
+                            </connections>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchField" destination="B79-s7-alx" id="dcS-NJ-m8t"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAR-a5-7V5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213.59999999999999" y="319.79010494752629"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="zfL-zp-CZN">
+            <objects>
+                <viewController id="dGV-5S-DAP" customClass="DetailViewController" customModule="FlickrViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7jZ-AJ-SvM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obi-st-ZfP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LrQ-J4-CdT">
+                                        <rect key="frame" x="8" y="8" width="359" height="538"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LrQ-J4-CdT" firstAttribute="top" secondItem="obi-st-ZfP" secondAttribute="top" constant="8" id="0Ns-9G-CAt"/>
+                                    <constraint firstAttribute="bottom" secondItem="LrQ-J4-CdT" secondAttribute="bottom" constant="8" id="4cj-Wr-4Gk"/>
+                                    <constraint firstAttribute="trailing" secondItem="LrQ-J4-CdT" secondAttribute="trailing" constant="8" id="OBr-8u-cRY"/>
+                                    <constraint firstItem="LrQ-J4-CdT" firstAttribute="centerY" secondItem="obi-st-ZfP" secondAttribute="centerY" id="b1R-vV-x6D"/>
+                                    <constraint firstItem="LrQ-J4-CdT" firstAttribute="centerX" secondItem="obi-st-ZfP" secondAttribute="centerX" id="ttk-Xc-gRN"/>
+                                    <constraint firstItem="LrQ-J4-CdT" firstAttribute="leading" secondItem="obi-st-ZfP" secondAttribute="leading" constant="8" id="vZD-JT-lwg"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="obi-st-ZfP" firstAttribute="trailing" secondItem="WfG-gd-Mmt" secondAttribute="trailing" id="20h-tD-Zb1"/>
+                            <constraint firstItem="obi-st-ZfP" firstAttribute="bottom" secondItem="WfG-gd-Mmt" secondAttribute="bottom" id="2OE-u8-3yu"/>
+                            <constraint firstItem="obi-st-ZfP" firstAttribute="top" secondItem="WfG-gd-Mmt" secondAttribute="top" id="fCj-ac-eGB"/>
+                            <constraint firstItem="obi-st-ZfP" firstAttribute="centerY" secondItem="7jZ-AJ-SvM" secondAttribute="centerY" id="jXp-zs-TA9"/>
+                            <constraint firstItem="obi-st-ZfP" firstAttribute="leading" secondItem="WfG-gd-Mmt" secondAttribute="leading" id="ofk-qQ-Wiy"/>
+                            <constraint firstItem="obi-st-ZfP" firstAttribute="centerX" secondItem="7jZ-AJ-SvM" secondAttribute="centerX" id="tA4-Gw-hg5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WfG-gd-Mmt"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="LrQ-J4-CdT" id="n0c-eh-XYl"/>
+                        <outlet property="detailScrollView" destination="obi-st-ZfP" id="Rha-ma-uxL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLn-do-toV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="-28"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="vVq-VF-6no">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X9N-1Y-V4L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" id="lAe-mE-n4W"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P4J-ar-yaF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oHQ-yH-fig" kind="relationship" relationship="rootViewController" id="qQL-zA-ih4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdD-F4-fcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-540" y="320"/>
+        </scene>
+        <!--Location-->
+        <scene sceneID="MWp-1G-6mW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4bE-Er-SKN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Location" id="eiY-K5-L7A"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3QV-C1-oAx">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yrP-8p-DeO" kind="relationship" relationship="rootViewController" id="blP-JO-rpW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrK-M3-tJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-540" y="-347"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qZn-zs-uek"/>
+    </inferredMetricsTieBreakers>
+</document>
